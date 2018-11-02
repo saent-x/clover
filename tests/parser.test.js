@@ -1,24 +1,11 @@
-const parse = require("../lib/parser");
-const pageType = parse.tags;
 const fs = require("fs");
 const path = require("path");
+const parse = require("../lib/parser");
+const { loadMockPage } = require("../lib/util");
 
-function loadMockPage(name) {
-    return new Promise((resolve, reject) => {
-        const filePath = path.resolve(__dirname, "./mock-pages/", name + ".html");
-        fs.readFile(filePath, { encoding: "utf-8" }, (err, data) => {
-            if (err) {
-                reject(err);
-            }
-            else {
-                resolve(data);
-            }
-        });
-    });
-}
+const pageType = parse.tags;
 
 describe('identify pages', () => {
-
     test("identify confirm-override page", () => {
         return loadMockPage("confirm-override").then(page => {
             expect(parse(page).type)
