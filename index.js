@@ -8,23 +8,19 @@ function CreateMarker(tag, matcher) {
         tag,
         matcher,
         /* test a string using the specified matcher */
-        test: function(html) {
+        test: function (html) {
             return this.matcher.test(html);
         }
     }
 }
 
 const getParser = (type) => {
-    if (parsers && parsers.length > 0) {
-        for (const parser in parsers) {
-            if (parser.for === type) {
-                return parser.parse;
-            }
+    parsers.forEach(parser => {
+        if (parser.for === type) {
+            return parser.parse;
         }
-    }
-    else {
-        throw new Error("No parser found for page with type " + type);
-    }
+    });
+    throw new Error("No parser found for page with type " + type);
 }
 
 
