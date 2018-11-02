@@ -1,0 +1,13 @@
+{
+  "name": "clover",
+  "version": "0.0.1",
+  "description": "A tiny library that wraps the raw CGI server of Augustine Univeristy - making it RESTful-ish",
+  "main": "index.js",
+  "repository": "https://github.com/king-kay/clover",
+  "author": "Edosa Kelvin",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "node-fetch": "^2.2.0"
+  }
+}
