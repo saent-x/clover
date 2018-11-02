@@ -1,0 +1,43 @@
+
+<html>
+    <head>
+        <title>GajShield Infotech (I) Pvt. Ltd.</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <script language="javascript" type="text/javascript">
+        function CheckUserDelete()
+        {
+            var user_delete = "yes";
+            if (user_delete == "yes")
+                Del_User();
+            else if (user_delete == "no")
+                ConfirmUserDelete();
+            else
+                alert("Invalid option for user delete");
+        }
+
+        function Del_User()
+        {
+            var userdelete = document.getElementById("userdelete");
+            userdelete.value = "yes";
+            document.confirmaction.submit();
+        }
+
+        function ConfirmUserDelete()
+        {
+            var status = window.confirm("au00042 is already logged in from 192.168.26.131, do you wish to continue? Selecting OK would logout the existing user");
+            if (status)
+                Del_User();
+            else
+                window.location = '/userlogin/index.html';
+        }
+        </script>
+    </head>
+    <body bgcolor="c2cdf3" onload="CheckUserDelete();">
+        <form name="confirmaction" method="POST" action="/cgi-bin/user_session.ggi">
+            <input type="hidden" name="user" value="au00042"/>
+            <input type="hidden" name="passwd" value="pass2011"/>
+            <input type="hidden" name="actualurl" value=""/>
+            <input type="hidden" name="userdelete" id="userdelete" value=""/>
+        </form>
+    </body>
+</html>
