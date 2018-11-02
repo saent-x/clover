@@ -1,5 +1,3 @@
-const fs = require("fs");
-const path = require("path");
 const parse = require("../lib/parser");
 const { loadMockPage } = require("../lib/util");
 
