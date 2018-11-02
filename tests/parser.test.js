@@ -1,4 +1,5 @@
-const {identify, parse} = require("../index");
+const parse = require("../lib/parser");
+const pageType = parse.tags;
 const fs = require("fs");
 const path = require("path");
 
@@ -20,7 +21,15 @@ describe('identify pages', () => {
 
     test("identify confirm-override page", () => {
         return loadMockPage("confirm-override").then(page => {
-            expect(identify(page)).toBe("confirm-override");
+            expect(parse(page).type)
+                .toBe(pageType.confirmOverride);
+        })
+    })
+
+    test("identify auth-failed page", () => {
+        return loadMockPage("auth-failed").then(page => {
+            expect(parse(page).type)
+                .toBe(pageType.authFailed);
         })
     })
 })
