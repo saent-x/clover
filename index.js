@@ -59,7 +59,6 @@ function parse(html) {
     }
 
     const type = identify(html);
-    /* find the appropriate response generator based on the type */
     return getParser(type)();
 }
 
