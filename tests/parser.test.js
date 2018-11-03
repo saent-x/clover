@@ -1,20 +1,29 @@
-const parse = require("../lib/parser");
+const { parse, pageTags } = require("../lib/parser");
 const { loadMockPage } = require("../lib/util");
-
-const pageType = parse.tags;
 
 describe('identify pages', () => {
     test("identify confirm-override page", () => {
         return loadMockPage("confirm-override").then(page => {
             expect(parse(page).type)
-                .toBe(pageType.confirmOverride);
+                .toBe(pageTags.confirmOverride);
         })
     })
-
     test("identify auth-failed page", () => {
         return loadMockPage("auth-failed").then(page => {
             expect(parse(page).type)
-                .toBe(pageType.authFailed);
+                .toBe(pageTags.authFailed);
+        })
+    })
+    test("identify session page", () => {
+        return loadMockPage("session").then(page => {
+            expect(parse(page).type)
+                .toBe(pageTags.session);
+        })
+    })
+    test("identify session page again", () => {
+        return loadMockPage("session").then(page => {
+            expect(parse(page).type)
+                .toBe(pageTags.session);
         })
     })
 })
