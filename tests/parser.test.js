@@ -20,11 +20,5 @@ describe('identify pages', () => {
                 .toBe(pageTags.session);
         })
     })
-    test("identify session page again", () => {
-        return loadMockPage("session").then(page => {
-            expect(parse(page).type)
-                .toBe(pageTags.session);
-        })
-    })
 })
 
