@@ -1,6 +1,13 @@
 const { parse, pageTags } = require("../lib/parser");
 const { loadMockPage } = require("../lib/util");
 
+test("parse correct session id", () => {
+    return loadMockPage("session").then(page => {
+        expect(parse(page).data.Id).toBe(52438975);
+    })
+})
+
+
 describe('identify pages', () => {
     test("identify confirm-override page", () => {
         return loadMockPage("confirm-override").then(page => {
