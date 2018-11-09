@@ -3,7 +3,7 @@
 <h1 align="center">
    🍀
   <h3 align="center">Clover</h3>
-  <p align="center" style="font-size: 0.5em">A site parser and API for AUI internet portal</p>
+  <p align="center" style="font-size: 0.5em">A site parser and api for the internet portal at Augustine University</p>
 </h1>
 
 <p align="center">
