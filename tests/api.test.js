@@ -3,7 +3,7 @@ const { loadMockPage } = require("../lib/util");
 
 function getMockApi(page) {
     let api = new Api({});
-    api.makeRequest = function (params) {
+    api.__makeRequest__ = function (params) {
         return loadMockPage(page);
     }
     return api;
