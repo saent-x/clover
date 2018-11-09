@@ -1,9 +1,15 @@
 
 
-# Clover 🍀
+<h1 align="center">
+   🍀
+  <h3 align="center">Clover</h3>
+  <p align="center" style="font-size: 0.5em">A site parser and API for AUI internet portal</p>
+</h1>
 
-[![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest) [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
-
+<p align="center">
+     <a href="https://github.com/facebook/jest"><img src="https://img.shields.io/badge/tested_with-jest-99424f.svg"></a> 
+     <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg"></a> 
+</p>
 
 ## Getting started
 
