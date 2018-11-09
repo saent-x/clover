@@ -11,13 +11,12 @@
     "test": "jest"
   },
   "dependencies": {
-    "babel-preset-env": "^1.7.0",
     "cheerio": "^1.0.0-rc.2",
-    "cosmiconfig": "^5.0.6",
     "cross-fetch": "^2.2.3",
     "node-fetch": "^2.2.0"
   },
   "devDependencies": {
+    "babel-preset-env": "^1.7.0",
     "@babel/core": "^7.1.5",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
