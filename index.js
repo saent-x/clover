@@ -1,5 +1,5 @@
 module.exports = {
-    ...require("./lib/api"),
+    Api: require("./lib/api"),
+    Session: require("./lib/session"),
     ...require("./lib/parser"),
-    ...require("./lib/session")
 }
