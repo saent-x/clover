@@ -1,43 +1,81 @@
 
 <html>
     <head>
-        <title>GajShield Infotech (I) Pvt. Ltd.</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <script language="javascript" type="text/javascript">
-        function CheckUserDelete()
-        {
-            var user_delete = "yes";
-            if (user_delete == "yes")
-                Del_User();
-            else if (user_delete == "no")
-                ConfirmUserDelete();
-            else
-                alert("Invalid option for user delete");
-        }
-
-        function Del_User()
-        {
-            var userdelete = document.getElementById("userdelete");
-            userdelete.value = "yes";
-            document.confirmaction.submit();
-        }
-
-        function ConfirmUserDelete()
-        {
-            var status = window.confirm("au00042 is already logged in from 192.168.26.131, do you wish to continue? Selecting OK would logout the existing user");
-            if (status)
-                Del_User();
-            else
-                window.location = '/userlogin/index.html';
-        }
-        </script>
+        <meta http-equiv="Content-Language" content="en-us">
+        <META http-equiv="refresh" content="5;URL=/userlogin/index.html">
+        <title>AUI INTERNET</title>
+        <link href="/admin/usersenseloginstyle.css" type="text/css" rel="stylesheet">
     </head>
-    <body bgcolor="c2cdf3" onload="CheckUserDelete();">
-        <form name="confirmaction" method="POST" action="/cgi-bin/user_session.ggi">
-            <input type="hidden" name="user" value="au00042"/>
-            <input type="hidden" name="passwd" value="pass2011"/>
-            <input type="hidden" name="actualurl" value=""/>
-            <input type="hidden" name="userdelete" id="userdelete" value=""/>
-        </form>
-    </body>
-</html>
+    <body topmargin="0">
+        <div align="center">
+            <table border="0" width="100%" cellspacing="0" cellpadding="0" height="100%">
+                <tr>
+                    <td valign="top" align="center">
+                        <!--table1-->
+                        <table border="0" width="448" cellspacing="0" cellpadding="0" height="auto">
+                            <tr>
+                                <td valign="top" class="bgtop" align="center">
+                                    <!--Inner table top1-->
+                                    <table border="0" width="87%" cellpadding="2">
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center" valign="top" class="d2">
+                                                <img src='/userlogin/logo/company_logo.png' class='logoimg1'/>
+                                                <br/>
+                                                <strong>AUI INTERNET</strong>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!--Inner table close top1-->	
+			
+                                </td>
+                            </tr>
+                        </table>
+                        <!--table1 end-->
+                        <!--table2-->
+                        <table border="0" width="448" cellspacing="0" cellpadding="0"  height="auto">
+                            <tr>
+                                <td valign="top" class="bgtop" align="center">&nbsp;
+						
+                                    <!--inner table mid1 -->
+                                    <table border="0" width="87%" cellpadding="2">
+                                        <tr>
+                                            <td class="d5">
+                                                <p align="center">Invalid Request
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                        <!--inner table close mid1 -->					
+					
+                                    </td>
+                                </tr>
+                            </table>
+                            <!--table2 end-->
+                            <!--table3-->
+                            <table border="0" width="448" cellspacing="0" cellpadding="0"  height="100%">
+                                <tr>
+                                    <td valign="top" class="bgbottom3" align="center">&nbsp;
+					</td>
+                                </tr>
+                            </table>
+                            <!--table3 end-->
+		
+		
+		
+                        </td>
+                    </tr>
+                </table>
+                <!--main table end-->
+
+
+            </div>
+        </body>
+    </html>
