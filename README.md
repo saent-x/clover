@@ -1,6 +1,6 @@
-<img alt="Parcel" src="https://purepng.com/public/uploads/large/purepng.com-cloverclovertrefoiltrefoil-plantstrefoil-flower-1701527700005ambda.png" height="80" width="80" align="left">
 
-# Clover
+
+# Clover 🍀
 
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest) [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
 
