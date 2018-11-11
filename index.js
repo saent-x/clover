@@ -1,5 +1,6 @@
 module.exports = {
-    Api: require("./lib/api"),
-    Session: require("./lib/session"),
-    ...require("./lib/parser"),
+    Api: require("./lib/Api"),
+    Session: require("./lib/Session"),
+    Matcher: require("./lib/Matcher"),
+    Parser: require("./lib/Parser")
 }
