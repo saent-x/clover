@@ -1,6 +1,6 @@
 {
   "name": "clover-api",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A site parser and api for the internet portal at Augustine University",
   "main": "index.js",
   "repository": "https://github.com/king-kay/clover",
