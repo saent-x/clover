@@ -1,25 +1,28 @@
-const { parse, pageTags } = require("../lib/parser");
+const test = require("ava");
+const Parser = require("../lib/Parser");
 const { loadMockPage } = require("../lib/util");
+const { tags } = require("../lib/Matcher");
 
-test("parse correct session id", async () => {
-    const page = await loadMockPage("session");
-    expect(parse(page).data.Id).toBe(52438975);
+test("parse correct session id", async t => {
+  const parser = new Parser();
+  const page = await loadMockPage("session");
+  t.is(parser.parse(page).data.id, 52438975);
 });
 
-describe('identify pages', async () => {
-    test("identify confirm-override page", () => {
-        const page = await loadMockPage("confirm-override");
-        expect(parse(page).type).toBe(pageTags.confirmOverride);
-    });
-
-    test("identify auth-failed page", async () => {
-        const page = await loadMockPage("auth-failed");
-        expect(parse(page).type).toBe(pageTags.authFailed);
-    });
-
-    test("identify session page", async () => {
-        const page = await loadMockPage("session");
-        expect(parse(page).type).toBe(pageTags.session);
-    })
+test("identify confirm-override page", async t => {
+  const parser = new Parser();
+  const page = await loadMockPage("confirm-override");
+  t.is(parser.parse(page).type, tags.confirmOverride);
 });
 
+test("identify auth-failed page", async t => {
+  const parser = new Parser();
+  const page = await loadMockPage("auth-failed");
+  t.is(parser.parse(page).type, tags.authenticationFailed);
+});
+
+test("identify session page", async t => {
+  const parser = new Parser();
+  const page = await loadMockPage("session");
+  t.is(parser.parse(page).type, tags.session);
+});

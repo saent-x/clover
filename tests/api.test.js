@@ -1,14 +1,7 @@
-const Api = require("../lib/api");
+const test = require("ava");
+const Api = require("../lib/Api");
 const { loadMockPage } = require("../lib/util");
 
-function getMockApi(page) {
-    let api = new Api({});
-    api.__makeRequest__ = function (params) {
-        return loadMockPage(page);
-    }
-    return api;
-}
-
-test("proving ground stuff", () => {
-    expect(1 + 1).toBe(2);
-})
+test("proving ground stuff", t => {
+  t.is(1 + 1, 2);
+});
