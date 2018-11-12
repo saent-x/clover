@@ -17,8 +17,7 @@
     "node-fetch": "^2.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.5",
     "ava": "^1.0.0-rc.1",
-    "chalk": "^2.4.1",
+    "chalk": "^2.4.1"
   }
 }
