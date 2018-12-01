@@ -1,6 +1,6 @@
 {
   "name": "clover-api",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "A site parser and api for the internet portal at Augustine University",
   "main": "index.js",
   "repository": "https://github.com/king-kay/clover",
@@ -11,13 +11,13 @@
     "test": "ava"
   },
   "dependencies": {
+    "ava": "1.0.0-rc.2",
     "cheerio": "^1.0.0-rc.2",
     "cross-fetch": "^2.2.3",
     "emittery": "^0.4.1",
     "node-fetch": "^2.2.0"
   },
   "devDependencies": {
-    "ava": "^1.0.0-rc.1",
     "chalk": "^2.4.1"
   }
 }

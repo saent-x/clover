@@ -1,7 +1,11 @@
 const test = require("ava");
 const Parser = require("../lib/Parser");
-const { loadMockPage } = require("../lib/util");
-const { tags } = require("../lib/Matcher");
+const {
+  loadMockPage
+} = require("../lib/util");
+const {
+  tags
+} = require("../lib/Matcher");
 
 test("parse correct session id", async t => {
   const page = await loadMockPage("session");
@@ -37,4 +41,13 @@ test("identify session page", async t => {
   const result = parser.parse(page);
 
   t.is(result.type, tags.session);
+});
+
+test("identify max-sessions-reached page", async t => {
+  const page = await loadMockPage("max-sessions-reached");
+
+  const parser = new Parser();
+  const result = parser.parse(page);
+
+  t.is(result.type, tags.maxSessionsReached);
 });
