@@ -17,7 +17,6 @@
     "node-fetch": "^2.2.0"
   },
   "devDependencies": {
-    "ava": "^1.0.0-rc.1",
     "chalk": "^2.4.1"
   }
 }
