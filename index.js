@@ -3,4 +3,4 @@ module.exports = {
     Session: require("./lib/Session"),
     Matcher: require("./lib/Matcher"),
     Parser: require("./lib/Parser")
-}
+};
