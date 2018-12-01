@@ -11,6 +11,7 @@
     "test": "ava"
   },
   "dependencies": {
+    "ava": "1.0.0-rc.2",
     "cheerio": "^1.0.0-rc.2",
     "cross-fetch": "^2.2.3",
     "emittery": "^0.4.1",
