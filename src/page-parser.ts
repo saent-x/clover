@@ -3,7 +3,6 @@ import IPageParser from "./interfaces/ipage-parser";
 import PageType from "./page-type"
 import { parseAdjacentSiblingValue } from "./parse-util";
 
-
 const sessionParser: IPageParser = (function () {
     function parseSessionId($: any): Number {
         const content = $("meta").last()[0].attribs.content;
