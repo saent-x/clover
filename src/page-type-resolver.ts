@@ -19,6 +19,9 @@ const pageMatchers: Array<IPageMatcher> = [
 ]
 
 export default class PageTypeResolver {
+	/**
+	 * Resolves static html to a PageType instance.
+	 */
 	static resolvePage(pageContent: string): PageType {
 		if (!pageContent) {
 			throw new Error("page must be valid html markup");
