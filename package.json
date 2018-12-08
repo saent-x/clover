@@ -9,9 +9,17 @@
   "private": false,
   "scripts": {
     "test": "ava",
-    "pretest": "yarn run build",
     "prepublish": "yarn run build",
     "build": "tsc"
+  },
+  "ava": {
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
   },
   "dependencies": {
     "ava": "1.0.0-rc.2",
@@ -24,10 +32,8 @@
     "@types/cheerio": "^0.22.10",
     "@types/mocha": "^5.2.5",
     "@types/node": "^10.12.12",
-    "chai": "^4.2.0",
     "chalk": "^2.4.1",
     "microbundle": "^0.8.3",
-    "mocha": "^5.2.0",
     "ts-node": "^7.0.1",
     "typescript": "^3.2.2"
   }
