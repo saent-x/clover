@@ -3,13 +3,14 @@ import { syncSetInterval } from "./util";
 
 // Emittery does not seem to support ES6 imports as of this time.
 // I will try to open a issue at https://github.com/sindresorhus/emittery as regards this.
-const Emittery = require("emittery");
+import Emittery = require("emittery");
 
 const api = new Api();
 
 export default class Session extends Emittery {
     hasActiveSession: boolean;
-    
+    updateHandle: any;
+
     constructor(id: number, interval: number) {
         super();
 
@@ -22,7 +23,7 @@ export default class Session extends Emittery {
         this.hasActiveSession = true;
 
         const fetchStats = async () => {
-            if (!this.sessionActive) {
+            if (!this.hasActiveSession) {
                 return;
             }
             const data = await api.refresh(id).catch(e => this.destroy(e));
@@ -34,7 +35,8 @@ export default class Session extends Emittery {
 
     destroy(e: Error) {
         this.updateHandle.clear();
-        this.sessionActive = false;
+        // set this to false so that another call to destroy will fail silently
+        this.hasActiveSession = false;
         this.emit("close", e);
     }
 };
