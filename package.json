@@ -2,7 +2,7 @@
   "name": "clover-api",
   "version": "0.3.2",
   "description": "A site parser and api for the internet portal at Augustine University",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "repository": "https://github.com/king-kay/clover",
   "author": "Edosa Kelvin",
   "license": "MIT",
