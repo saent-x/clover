@@ -2,22 +2,33 @@
   "name": "clover-api",
   "version": "0.3.2",
   "description": "A site parser and api for the internet portal at Augustine University",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": "https://github.com/king-kay/clover",
   "author": "Edosa Kelvin",
   "license": "MIT",
   "private": false,
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "pretest": "yarn run build",
+    "prepublish": "yarn run build",
+    "build": "tsc"
   },
   "dependencies": {
     "ava": "1.0.0-rc.2",
     "cheerio": "^1.0.0-rc.2",
     "cross-fetch": "^2.2.3",
-    "emittery": "^0.4.1",
-    "node-fetch": "^2.2.0"
+    "emittery": "^0.4.1"
   },
   "devDependencies": {
-    "chalk": "^2.4.1"
+    "@types/chai": "^4.1.7",
+    "@types/cheerio": "^0.22.10",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.12",
+    "chai": "^4.2.0",
+    "chalk": "^2.4.1",
+    "microbundle": "^0.8.3",
+    "mocha": "^5.2.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.2"
   }
 }
