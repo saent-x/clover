@@ -19,7 +19,7 @@ export default class Api {
 		};
 		const result = await fetch(this.url + "?" + query, options);
 		const pageContent = await result.text();
-		const pageType = PageTypeResolver.resolvePage(pageContent);
+		const pageType = PageTypeResolver.resolveType(pageContent);
 
 		if (pageType !== PageType.unknown) {
 			const parseResult = PageParser.getParser(pageType)
@@ -68,7 +68,7 @@ export default class Api {
 		switch (result.pageType) {
 			case PageType.confirmOverride:
 				/* To-do: pass the ip of the already logged in device to 'override' callback
-				 as a parameter, so that who's consumig it can perhaps print a useful
+				 as a parameter, so that who's consuming it can perhaps print a useful
 				 message or prompt */
 				if (
 					typeof override === "function" &&
@@ -101,11 +101,11 @@ export default class Api {
 		if (result.pageType === PageType.session) {
 			return result.data;
 		} else {
-			throw new Error("An error ocurred while refreshing");
+			throw new Error("An error occurred while fetching data");
 		}
 	}
 
-	async logout(id) {
+	async logout(id: number) {
 		if (!id) {
 			throw new Error("invalid session id");
 		}
@@ -114,7 +114,7 @@ export default class Api {
 			logout: 1
 		};
 
-		await this.__makeRequest__(fetchParams);
-		/* no checks required, even if the call fails, silently return */
+        /* no checks required, even if the call fails, silently return */
+        await this.__makeRequest__(fetchParams);
 	}
 };
