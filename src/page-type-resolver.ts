@@ -2,11 +2,12 @@ import PageType from "./page-type";
 import IPageMatcher from "./interfaces/ipage-matcher";
 
 function createMatcher(pageType: PageType, regex: RegExp): IPageMatcher {
-	const matcher: IPageMatcher = {
-		pageType: pageType,
-		isMatch: function (html: string): boolean { return regex.test(html); }
-	}
-	return matcher;
+    return {
+        pageType: pageType,
+        isMatch: function (html: string): boolean {
+            return regex.test(html);
+        }
+    };
 }
 
 const pageMatchers: Array<IPageMatcher> = [
@@ -16,13 +17,13 @@ const pageMatchers: Array<IPageMatcher> = [
 	createMatcher(PageType.confirmOverride, /\Walready logged\W/i),
 	createMatcher(PageType.loggedOut, /\WYou have been successfully Logged Out!!!\W/i),
 	createMatcher(PageType.maxSessionsReached, /\WThe no of UserSense session of User:\W/i)
-]
+];
 
 export default class PageTypeResolver {
 	/**
 	 * Resolves static html to a PageType instance.
 	 */
-	static resolvePage(pageContent: string): PageType {
+	static resolveType(pageContent: string): PageType {
 		if (!pageContent) {
 			throw new Error("page must be valid html markup");
 		}
