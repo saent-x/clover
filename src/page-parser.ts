@@ -1,14 +1,55 @@
 import cheerio = require("cheerio");
 import IPageParser from "./interfaces/ipage-parser";
 import PageType from "./page-type"
+import {parseToMb} from "./util";
 
 const sessionParser: IPageParser = (function () {
-    function parseAdjacentSiblingValue($: any, key: string): string {
+    return {
+        pageType: PageType.session,
+
+        parse: function (html: string) {
+            const $ = cheerio.load(html);
+            const id = parseSessionId($);
+            const quotaType = parseNodeValue($, "Bandwidth Quota Schedule:");
+
+            let _total = parseNodeValue($, "Group Allowed Bandwidth:");
+            if (!_total || _total === "-") {
+                _total = "3.00 GB";
+            }
+            const total = parseToMb(_total);
+
+            let _upload = parseNodeValue($, "Upload:");
+            if (!_upload || _upload === "-") {
+                _upload = "0 MB";
+            }
+            const upload = parseToMb(_upload);
+
+            let _download = parseNodeValue($, "Download:");
+            if (!_download || _download === "-") {
+                _download = "0 MB";
+            }
+            const download = parseToMb(_download);
+
+            let _used = parseNodeValue($, "Total Bandwidth:");
+            if (!_used || _used === "-") {
+                _used = "0 MB";
+            }
+            const used = parseToMb(_used);
+
+            return {id, quotaType, total, upload, download, used};
+        }
+    };
+
+    function parseNodeValue($: any, key: string): string {
         /* Todo: re-write this block, it's a tad messy */
-        let query = Array.from($("td.para1"))
-            .map(function (node: any) { node.children[0] })
+        const values = Array.from($("td.para1"))
+            .map(function (node: any) {
+                return node.children[0]
+            })
             .filter(function (node: any) {
-                const sanitize = function (value: string) { value.toLocaleLowerCase().trim(); }
+                const sanitize = function (value: string) {
+                    value.toLocaleLowerCase().trim();
+                };
                 return node && node.data ? sanitize(key) === sanitize(node.data) : false;
             })
             .map(function (node: any) {
@@ -17,32 +58,16 @@ const sessionParser: IPageParser = (function () {
                 do {
                     currentNode = currentNode.next;
                 } while (currentNode.type != "tag");
-    
+
                 return currentNode.children[0].data;
             });
-    
-        return query.length > 0 ? query[0] : null;
+
+        return values.length > 0 ? values[0] : null;
     }
+
     function parseSessionId($: any): Number {
         const content = $("meta").last()[0].attribs.content;
         return Number.parseInt(content.slice(content.lastIndexOf("=") + 1));
-    }
-
-    return {
-        pageType: PageType.session,
-
-        parse: function (html: string) {
-            // load and resuse cheerio context
-            const $ = cheerio.load(html);
-            const id = parseSessionId($);
-            const quotaType = parseAdjacentSiblingValue($, "Bandwidth Quota Schedule:");
-            const total = parseAdjacentSiblingValue($, "Group Allowed Bandwidth:") || "3.00 GB";
-            const upload = parseAdjacentSiblingValue($, "Upload:") || "0 MB";
-            const download = parseAdjacentSiblingValue($, "Download:") || "0 MB";
-            const used = parseAdjacentSiblingValue($, "Total Bandwidth:") || "0 MB";
-
-            return { id, quotaType, total, upload, download, used };
-        }
     }
 })();
 
