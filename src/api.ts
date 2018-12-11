@@ -41,12 +41,12 @@ export default class Api {
             userdelete: "yes"
         };
 
-        const result = await this.__makeRequest__(params);
+        const {data, pageType} = await this.__makeRequest__(params);
 
-        if (result.pageType === PageType.session) {
-            return result.data;
+        if (pageType === PageType.session) {
+            return data;
         } else {
-            // TO-DO: Replace crappy error message with something more descriptive
+            // Todo: Probably add logging functionality
             throw new Error("an unknown error occurred");
         }
     }
